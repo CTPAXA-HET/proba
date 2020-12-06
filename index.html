@@ -3,6 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="css/work.css">
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js"></script>
 	<title>Document</title>
 </head>
 <body>
@@ -38,7 +40,7 @@
 					<select name="A7">
 						<option value="Мужской">Мужской</option>
 						<option value="Женский">Женский</option>
-					</select><br>       
+					</select><br>
 			    </div><br>
 		    </div>
 		    <div class="container__dniwe">
@@ -46,18 +48,69 @@
 		    </div>
 		</div>
 		<div class="container__button">
-			<a href="#openModal" class="generate">Generate</a>
+			<button class= "myBtn" type="button=generaton">Generate</button>
 		</div>
-	</div>
-	<div id="openModal" class="modalDialog">
-		<div class="flex">
-			<div class="modal-dev">
-				<div class="modal-header">
-					<h3 class="modal-title">Закрой нахуй</h3>
-					<a href="#close" title="Close" class="close"></a>
+  
+<div id="myModal" class="modal">
+  <div class="modal__box">
+			<div class="modal__header">
+				<div class="close">&#10006;</div>
+			</div>
+			<div class="modal__body">
+				<div class="modal__title">
+					<label for="fname">First Name</label>
+				</div>
+				<div class="modal__textarea">
+					<input type="popup" class="textcopy" placeholder="Your name..">
+					<div class="modal__button">
+						<button type="button" class="copy">Copy</button>
+					</div>
+				</div>
+				<div class="modal__title">
+					<label for="fname">BBcode</label>
+				</div>
+				<div class="modal__textarea">
+					<textarea type="textarea" class="textcopy" rows="15" cols="65" placeholder="Текст или нажать Alt+0151"></textarea>
+					<div class="modal__button">
+						<button type="button" class="copy">Copy</button>
+					</div>
 				</div>
 			</div>
-		</div>		
-	</div>
+			<div class="buttons">
+				<a href="#0">Close</a>
+			</div>
+		</div>
+</div>
+ </div>
+	<script>
+		$(".myBtn").click(function() {
+  $(".modalcontainer").fadeIn("slow");
+  $(".modal").fadeIn("slow");
+})
+
+
+$(".close,.buttons").click(function() {
+  $(".modalcontainer").fadeOut("slow");
+  $(".modal").fadeOut("slow");
+})
+
+$(document).mouseup(function (e){
+var modalctr = $("#myModal");
+var modal = $(".modal__box");
+if (!modal.is(e.target) && modal.has(e.target).length === 0){
+	modalctr.hide();
+}
+});
+
+var clipboard = new ClipboardJS('.copy');
+
+$('.textcopy').each(function(i, item) {
+    $(item).addClass('cb-target-' + i);
+});
+
+$('.copy').each(function(i, item) {
+    $(item).attr('data-clipboard-target','.cb-target-' + i);
+});
+	</script>
 </body>
 </html>

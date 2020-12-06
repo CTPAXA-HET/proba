@@ -95,7 +95,8 @@ input[type="text"] {
 
 /* button
 =========== */
-.container__button a {
+
+button[type="button=generaton"] {
 	background-color: #dfdfdf;
 	border: 2px solid #c5c5c5;
 	color: #525252;
@@ -108,87 +109,157 @@ input[type="text"] {
 	cursor: pointer;
 }
 
-.container__button a#generate:hover {
+button[type="button=generaton"]:active {
 	background-color: #bc2a4d;
 	color: white;
 	border: 2px solid #91203c;
 	box-shadow: 0 0.875rem 1.75rem rgba(0, 0, 0, 0.25), 0 0.625rem 0.625rem rgba(0, 0, 0, 0.22);
 }
-/* modal window
-================*/
 
-.modalDialog {
-  position: fixed;
-  top: 0;
-  bottom: 0;
+/* модальное */
+/* задник
+===================*/
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
   left: 0;
-  right: 0;
-  z-index: 1050;
-  opacity: 0;
-  pointer-events: none;
-  -webkit-transition: opacity 200ms ease-in;
-  -moz-transition: opacity 200ms ease-in;
-  background-color: rgba(0, 0, 0, 0.5);
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
-.modalDialog:target {
-	opacity: 1;
-	pointer-events: auto;
-	overflow-y: auto;
-}
-
-.flex {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.modal-dev {
+/* сама коробка
+===================*/
+.modal__box {
   position: relative;
-  width: 600px;
-  height: 330px;
-  background-color: #FFF;
+  width: 60%;
+  max-width: 800px;
+  margin: 100px auto;
+
+}
+
+/* верхняя часть
+===================*/
+.modal__header {
+  padding: 10px 40px;
+  background: #546E7A;
+  background: linear-gradient(to right, #eef2f3, #8e9eab);
+  color: #ffffff;
 }
 
 /* кнопка закрытия
 ===================*/
-.close	{
-	position: relative;
-    display: inline-block;
-    right: -94%;
-	top: -55px;
+.modal__header .close {
+  display: block;
+  font-family: "Source Sans Pro", sans-serif;
+  text-align: right;
+  cursor: pointer;
 }
 
-.close::after {
-    -webkit-transform: rotate(-45deg);
-    -moz-transform: rotate(-45deg);
-    -ms-transform: rotate(-45deg);
-    -o-transform: rotate(-45deg);
-    transform: rotate(-45deg);
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
 }
 
-.close::before {
-    -webkit-transform: rotate(45deg);
-    -moz-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    -o-transform: rotate(45deg);
-    transform: rotate(45deg);
-}
-      
-.close::before, .close::after {
-content: '';
-position: absolute;
-border-radius: 5px;
-height: 2px;
-width: 30px; 
-background: #000;
-height: 8px;
-color: #000;
-margin-top: -6px;
-background: #aaa;
+/* нижняя часть
+===================*/
+.modal__body {
+  background: #ECEFF1;
+  padding: 25px;
 }
 
-.close:hover::before, .close:hover::after {
-  background: #1ebcc5;
+/* кнопка
+===================*/
+.modal__button {
+    margin: auto;
+    background: #60a839;
+    border: none;
+}
+
+button[type=button] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border: 0;
+}
+
+button[type=button]:active {
+  background: rgb(33,147,90);
+  outline: none;
+}
+
+.modal__textarea {
+  display: flex;
+  overflow: auto;
+}
+
+textarea[type=textarea] {
+  box-sizing: border-box;
+  padding: 12px 20px;
+  resize: vertical;
+  font-size: 1rem;
+  border-radius: 4px;
+}
+
+input[type=popup] {
+    width: 63%;
+    font-size: 1rem;
+    padding: 12px 20px;
+}
+
+
+input#firstname:active {
+	outline: none;
+}
+
+.modal__title {
+  font-weight: 400px;
+  padding: 5px 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* закрытие снизу
+===================*/
+.modal .buttons {
+  bottom: 0;
+  height: 50px;
+  background-color: #FFF;
+}
+
+.modal .buttons a {
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  float: left;
+  background-color: #EEE;
+  color: #4d5c6e;
+  transition: 0.3s;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.modal .buttons a:hover {
+  background-color: #e1e1e1;
 }
